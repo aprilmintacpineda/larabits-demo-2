@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ app/core.php?path=$1 [NC,L,QSA]
