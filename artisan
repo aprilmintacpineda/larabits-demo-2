@@ -1,0 +1,30 @@
+<?php
+require 'app/autoload.php';
+
+array_shift($argv);
+
+function list_commands() {
+  echo "\n";
+  echo "+------------------+\n";
+  echo "| Artisan Commands |\n";
+  echo "+------------------+\n";
+
+  echo "serve-------will create a development server for you.\n";
+  echo "inspire-----will tell you something inspiring.\n";
+}
+
+if(isset($argv[0])) {
+  switch ($argv[0]) {
+    case 'serve':
+      Artisan::server(__dir__);
+    break;
+    case 'inspire':
+      Artisan::inspire();
+    break;
+    default:
+      list_commands();
+    break;
+  }
+} else {
+  list_commands();
+}
