@@ -3,7 +3,7 @@
 class Request {
   public static function serve($path = '/') {
     try {
-      $route = Route::getController($path);
+      $route = Route::getController($path, !empty($_POST));
       if(!preg_match('/(^[a-zA-Z]+@{1}[a-zA-Z]+$)/', $route['controller'])) {
         throw new MalformedParameterException('Route::'. $route['method'] . ' expects parameter 2 to follow the pattern ControllerClassName@methodName.');
       }
